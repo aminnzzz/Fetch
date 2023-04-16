@@ -13,57 +13,46 @@ struct ContentView: View {
     @State private var meals: [Meal] = []
     var body: some View {
         VStack(spacing: 20) {
-            Button(action: {
-                fetchDessertMeals { meals in
-                    if let meals = meals {
-                        self.meals = meals
-                    } else {
-                        print("could not get the desserts")
-                    }
-                }
-                self.showDessert = true
-            }) {
-                Text("Show Desserts")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(20)
-            }
-            .sheet(isPresented: $showDessert) {
-                NavigationView{
-                    List(meals, id: \.idMeal) { meal in
-                        NavigationLink(destination: MealDetailView(mealId: meal.idMeal)){
-                                HStack(alignment: .center){
-                                    VStack(alignment: .leading, spacing: 10){
-                                        Text(meal.strMeal)
-                                            .foregroundColor(.black)
-                                    }
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
-                                    AsyncImage(
-                                        url: URL(string: meal.strMealThumb),
-                                        content: { image in
-                                            image.resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 300, maxHeight: 100)
-                                        },
-                                        placeholder: {
-                                            Image(systemName: "globe")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(maxWidth: 300, maxHeight: 100)
-                                        }
-                                        
-                                    )
-                                    .cornerRadius(25)
-                                }
-                                .padding()
-                                .border(Color.orange, width: 3)
+            NavigationView{
+                List(meals, id: \.idMeal) { meal in
+                    NavigationLink(destination: MealDetailView(mealId: meal.idMeal)){
+                        VStack(alignment: .leading, spacing: 10){
+                            Text(meal.strMeal)
+                                .foregroundColor(.black)
                         }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        AsyncImage(
+                            url: URL(string: meal.strMealThumb),
+                            content: { image in
+                                image.resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: 300, maxHeight: 100)
+                            },
+                            placeholder: {
+                                Image(systemName: "globe")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: 300, maxHeight: 100)
+                            }
+                            
+                        )
+                        .cornerRadius(25)
+                        
                     }
+                    .padding()
+                    .border(Color.orange, width: 3)
                 }
             }
-            .navigationBarTitle(Text("Home"))
+        }
+        .onAppear{
+            fetchDessertMeals { meals in
+                if let meals = meals {
+                    self.meals = meals
+                } else {
+                    print("could not get the desserts")
+                }
+            }
         }
         .padding()
     }
@@ -133,7 +122,7 @@ struct MealDetailView: View {
         .navigationBarTitle(Text("Meal Details"))
     }
 }
-    
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
