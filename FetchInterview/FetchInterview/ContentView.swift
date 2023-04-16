@@ -33,14 +33,12 @@ struct ContentView: View {
                 NavigationView{
                     List(meals, id: \.idMeal) { meal in
                         NavigationLink(destination: MealDetailView(mealId: meal.idMeal)){
-                            VStack {
                                 HStack(alignment: .center){
                                     VStack(alignment: .leading, spacing: 10){
                                         Text(meal.strMeal)
                                             .foregroundColor(.black)
-                                        Text(meal.idMeal)
-                                            .foregroundColor(.black)
                                     }
+                                    .padding()
                                     .frame(maxWidth: .infinity)
                                     AsyncImage(
                                         url: URL(string: meal.strMealThumb),
@@ -57,10 +55,10 @@ struct ContentView: View {
                                         }
                                         
                                     )
-                                    .cornerRadius(10)
+                                    .cornerRadius(25)
                                 }
-                            }
-                            .border(Color.orange)
+                                .padding()
+                                .border(Color.orange, width: 3)
                         }
                     }
                 }
@@ -74,62 +72,29 @@ struct ContentView: View {
 struct MealDetailView: View {
     let mealId: String
     @State private var mealDetails: [MealDetails]? = nil
-    @State private var showDetails = false
     
     var body: some View {
         VStack {
-            Button(action: {
-                fetchMealDetails(mealId: self.mealId) {
-                    mealDetails in
-                    if let mealDetails = mealDetails {
-                        self.mealDetails = mealDetails
-                    } else {
-                        print("could not get the desserts")
-                    }
-                }
-            }) {
-                Text("Show Details")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(20)
-            }
-            if let mealDetails = self.mealDetails {
-                let meal = mealDetails.first
+            if let meal = mealDetails?.first{
                 ScrollView {
-                    VStack(alignment: .center, spacing: 20) {
-                        HStack(spacing: 15){
-                            VStack(alignment: .center) {
-                                Text("meal ID:")
-                                Text(meal?.idMeal ?? "no id")
-                            }
-                            VStack(alignment: .center) {
-                                Text("meal:")
-                                Text(meal?.strMeal ?? "no name")
-                            }
-                            VStack(alignment: .center) {
-                                Text("drink alterative:")
-                                Text(meal?.strDrinkAlternate ?? "no drink alternative")
-                            }
-                        }
-                        HStack(spacing: 15) {
-                            VStack(alignment: .center) {
-                                Text("category:")
-                                Text(meal?.strCategory ?? "no category")
-                            }
-                            VStack(alignment: .center) {
-                                Text("area:")
-                                Text(meal?.strArea ?? "no area")
-                            }
-                        }
+                    HStack {
+                        Text("meal name:")
+                            .font(.title2)
+                        Divider()
+                        Text(meal.strMeal ?? "no name")
+                            .font(.title2)
                     }
                     Spacer()
+                    Divider()
                     VStack {
                         Text("instructions:")
-                        Text(meal?.strInstructions ?? "no instructions")
+                            .font(.title2)
+                        Text(meal.strInstructions ?? "no instructions")
                     }
+                    Spacer()
+                    Divider()
                     AsyncImage(
-                        url: URL(string: meal?.strMealThumb ?? "no image"),
+                        url: URL(string: meal.strMealThumb ?? "no image"),
                         content: { image in
                             image.resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -144,50 +109,46 @@ struct MealDetailView: View {
                         
                     )
                     .cornerRadius(10)
-                    VStack(spacing:20) {
-                        VStack {
-                            Text("tags:")
-                            Text(meal?.strTags ?? "no tags")
-                        }
-                        VStack {
-                            Text("youtube link:")
-                            Text(meal?.strYoutube ?? "no youtube link")
-                        }
-                    }
                     Spacer()
-                    Spacer()
-                    HStack {
+                    Divider()
+                    HStack(alignment: .top) {
                         VStack{
-                            let str = listBuilderIngredients(meal: meal)
+                            let ingredients = listBuilderIngredients(meal: meal)
                             Text("ingredients:")
-                            Text(str)
+                                .font(.title2)
+                            Divider()
+                            ForEach(ingredients, id: \.self) { ingredient in
+                                if (ingredient != "") {
+                                    Text(ingredient)
+                                }
+                            }
                         }
+                        Spacer()
                         VStack{
-                            let str = listBuildermeasures(meal: meal)
+                            let measures = listBuildermeasures(meal: meal)
                             Text("measures:")
-                            Text(str)
+                                .font(.title2)
+                            Divider()
+                            ForEach(measures, id: \.self) { measure in
+                                if (measure != "") {
+                                    Text(measure)
+                                }
+                            }
                         }
                     }
-                    VStack {
-                        VStack {
-                            Text("source:")
-                            Text(meal?.strSource ?? "no source")
-                        }
-                        VStack {
-                            Text("image source:")
-                            Text(meal?.strImageSource ?? "no image source")
-                        }
-                        VStack {
-                            Text("creative comms confirmed:")
-                            Text(meal?.strCreativeCommonsConfirmed ?? "no creative comms confirmed")
-                        }
-                        VStack {
-                            Text("date modified:")
-                            Text(meal?.dateModified ?? "date modified")
-                        }
-                    }
+                    .padding()
                 }
                 .frame(maxWidth: .infinity)
+            }
+        }
+        .onAppear {
+            fetchMealDetails(mealId: self.mealId) {
+                mealDetails in
+                if let mealDetails = mealDetails {
+                    self.mealDetails = mealDetails
+                } else {
+                    print("could not get the desserts")
+                }
             }
         }
         .padding()

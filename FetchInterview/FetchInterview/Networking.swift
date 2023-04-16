@@ -53,99 +53,60 @@ func fetchMealDetails(mealId: String, completion: @escaping ([MealDetails]?) -> 
     }
 }
 
-func listBuilderIngredients (meal: MealDetails?) -> String {
+func listBuilderIngredients (meal: MealDetails?) -> [String] {
     guard let meal = meal else {
-        return ""
+        return []
     }
-    var ingredientsText = ""
-    ingredientsText += meal.strIngredient1 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient2 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient3 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient4 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient5 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient6 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient7 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient8 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient9 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient10 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient11 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient12 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient13 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient14 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient15 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient16 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient17 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient18 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient19 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strIngredient20 ?? ""
-    ingredientsText += " "
+    var ingredientsText = [String]()
+    ingredientsText.append(meal.strIngredient1 ?? "")
+    ingredientsText.append(meal.strIngredient2 ?? "")
+    ingredientsText.append(meal.strIngredient3 ?? "")
+    ingredientsText.append(meal.strIngredient4 ?? "")
+    ingredientsText.append(meal.strIngredient5 ?? "")
+    ingredientsText.append(meal.strIngredient6 ?? "")
+    ingredientsText.append(meal.strIngredient7 ?? "")
+    ingredientsText.append(meal.strIngredient8 ?? "")
+    ingredientsText.append(meal.strIngredient9 ?? "")
+    ingredientsText.append(meal.strIngredient10 ?? "")
+    ingredientsText.append(meal.strIngredient11 ?? "")
+    ingredientsText.append(meal.strIngredient12 ?? "")
+    ingredientsText.append(meal.strIngredient13 ?? "")
+    ingredientsText.append(meal.strIngredient14 ?? "")
+    ingredientsText.append(meal.strIngredient15 ?? "")
+    ingredientsText.append(meal.strIngredient16 ?? "")
+    ingredientsText.append(meal.strIngredient17 ?? "")
+    ingredientsText.append(meal.strIngredient18 ?? "")
+    ingredientsText.append(meal.strIngredient19 ?? "")
+    ingredientsText.append(meal.strIngredient20 ?? "")
+
     return ingredientsText
 }
 
-func listBuildermeasures (meal: MealDetails?) -> String {
+func listBuildermeasures (meal: MealDetails?) -> [String] {
     guard let meal = meal else {
-        return ""
+        return []
     }
-    var ingredientsText = ""
-    ingredientsText += meal.strMeasure1 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure2 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure3 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure4 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure5 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure6 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure7 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure8 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure9 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure10 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure11 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure12 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure13 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure14 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure15 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure16 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure17 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure18 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure19 ?? ""
-    ingredientsText += " "
-    ingredientsText += meal.strMeasure20 ?? ""
-    ingredientsText += " "
+    var ingredientsText = [String]()
+    ingredientsText.append(meal.strMeasure1 ?? "")
+    ingredientsText.append(meal.strMeasure2 ?? "")
+    ingredientsText.append(meal.strMeasure3 ?? "")
+    ingredientsText.append(meal.strMeasure4 ?? "")
+    ingredientsText.append(meal.strMeasure5 ?? "")
+    ingredientsText.append(meal.strMeasure6 ?? "")
+    ingredientsText.append(meal.strMeasure7 ?? "")
+    ingredientsText.append(meal.strMeasure8 ?? "")
+    ingredientsText.append(meal.strMeasure9 ?? "")
+    ingredientsText.append(meal.strMeasure10 ?? "")
+    ingredientsText.append(meal.strMeasure11 ?? "")
+    ingredientsText.append(meal.strMeasure12 ?? "")
+    ingredientsText.append(meal.strMeasure13 ?? "")
+    ingredientsText.append(meal.strMeasure14 ?? "")
+    ingredientsText.append(meal.strMeasure15 ?? "")
+    ingredientsText.append(meal.strMeasure16 ?? "")
+    ingredientsText.append(meal.strMeasure17 ?? "")
+    ingredientsText.append(meal.strMeasure18 ?? "")
+    ingredientsText.append(meal.strMeasure19 ?? "")
+    ingredientsText.append(meal.strMeasure20 ?? "")
     return ingredientsText
 }
 
