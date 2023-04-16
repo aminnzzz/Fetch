@@ -77,44 +77,22 @@ struct MealDetailView: View {
         VStack {
             if let meal = mealDetails?.first{
                 ScrollView {
-                    HStack {
-                        Text("meal name:")
-                            .font(.title2)
-                        Divider()
-                        Text(meal.strMeal ?? "no name")
-                            .font(.title2)
-                    }
+                    Text(meal.strMeal ?? "no name")
+                        .font(.title2)
+                    
                     Spacer()
                     Divider()
                     VStack(spacing: 10) {
-                        Text("instructions:")
+                        Text("Instructions:")
                             .font(.title2)
                         Text(meal.strInstructions ?? "no instructions")
                     }
                     Spacer()
                     Divider()
-                    AsyncImage(
-                        url: URL(string: meal.strMealThumb ?? "no image"),
-                        content: { image in
-                            image.resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: 300, maxHeight: 100)
-                        },
-                        placeholder: {
-                            Image(systemName: "globe")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: 300, maxHeight: 100)
-                        }
-                        
-                    )
-                    .cornerRadius(10)
-                    Spacer()
-                    Divider()
                     HStack(alignment: .top) {
                         VStack{
                             let ingredients = listBuilderIngredients(meal: meal)
-                            Text("ingredients:")
+                            Text("Ingredients:")
                                 .font(.title2)
                             Divider()
                             ForEach(ingredients, id: \.self) { ingredient in
@@ -126,7 +104,7 @@ struct MealDetailView: View {
                         Spacer()
                         VStack{
                             let measures = listBuildermeasures(meal: meal)
-                            Text("measures:")
+                            Text("Measures:")
                                 .font(.title2)
                             Divider()
                             ForEach(measures, id: \.self) { measure in
