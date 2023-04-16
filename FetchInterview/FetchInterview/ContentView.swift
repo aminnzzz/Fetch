@@ -45,6 +45,7 @@ struct ContentView: View {
                         .stroke(Color.orange, lineWidth: 3)
                 )
             }
+            .navigationBarTitle("List of Desserts", displayMode: .automatic)
         }
         
         .onAppear{
