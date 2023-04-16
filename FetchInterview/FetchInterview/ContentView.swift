@@ -41,7 +41,10 @@ struct ContentView: View {
                         
                     }
                     .padding()
-                    .border(Color.orange, width: 3)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.orange, lineWidth: 3)
+                    )
                 }
             }
         }
