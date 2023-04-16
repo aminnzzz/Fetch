@@ -12,42 +12,41 @@ struct ContentView: View {
     @State private var showID = false
     @State private var meals: [Meal] = []
     var body: some View {
-        VStack(spacing: 20) {
-            NavigationView{
-                List(meals, id: \.idMeal) { meal in
-                    NavigationLink(destination: MealDetailView(mealId: meal.idMeal)){
-                        VStack(alignment: .leading, spacing: 10){
-                            Text(meal.strMeal)
-                                .foregroundColor(.black)
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        AsyncImage(
-                            url: URL(string: meal.strMealThumb),
-                            content: { image in
-                                image.resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: 300, maxHeight: 100)
-                            },
-                            placeholder: {
-                                Image(systemName: "globe")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: 300, maxHeight: 100)
-                            }
-                            
-                        )
-                        .cornerRadius(25)
-                        
+        NavigationView{
+            List(meals, id: \.idMeal) { meal in
+                NavigationLink(destination: MealDetailView(mealId: meal.idMeal)){
+                    VStack(alignment: .leading, spacing: 10){
+                        Text(meal.strMeal)
+                            .foregroundColor(.black)
                     }
                     .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.orange, lineWidth: 3)
+                    .frame(maxWidth: .infinity)
+                    AsyncImage(
+                        url: URL(string: meal.strMealThumb),
+                        content: { image in
+                            image.resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: 300, maxHeight: 100)
+                        },
+                        placeholder: {
+                            Image(systemName: "globe")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: 300, maxHeight: 100)
+                        }
+                        
                     )
+                    .cornerRadius(25)
+                    
                 }
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.orange, lineWidth: 3)
+                )
             }
         }
+        
         .onAppear{
             fetchDessertMeals { meals in
                 if let meals = meals {
