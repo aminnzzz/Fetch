@@ -86,7 +86,7 @@ struct MealDetailView: View {
                     }
                     Spacer()
                     Divider()
-                    VStack {
+                    VStack(spacing: 10) {
                         Text("instructions:")
                             .font(.title2)
                         Text(meal.strInstructions ?? "no instructions")
