@@ -12,7 +12,18 @@
 		711A2EFA29EA6B3E001F58FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711A2EF929EA6B3E001F58FA /* Assets.xcassets */; };
 		711A2EFD29EA6B3E001F58FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711A2EFC29EA6B3E001F58FA /* Preview Assets.xcassets */; };
 		711A2F0429EA6D3B001F58FA /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711A2F0329EA6D3B001F58FA /* Networking.swift */; };
+		711A2F0E29EBC826001F58FA /* FetchInterviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711A2F0D29EBC826001F58FA /* FetchInterviewTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		711A2F0F29EBC826001F58FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 711A2EEA29EA6B3D001F58FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 711A2EF129EA6B3D001F58FA;
+			remoteInfo = FetchInterview;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		711A2EF229EA6B3D001F58FA /* FetchInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,10 +32,19 @@
 		711A2EF929EA6B3E001F58FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711A2EFC29EA6B3E001F58FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		711A2F0329EA6D3B001F58FA /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		711A2F0B29EBC826001F58FA /* FetchInterviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchInterviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		711A2F0D29EBC826001F58FA /* FetchInterviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchInterviewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		711A2EEF29EA6B3D001F58FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711A2F0829EBC826001F58FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				711A2EF429EA6B3D001F58FA /* FetchInterview */,
+				711A2F0C29EBC826001F58FA /* FetchInterviewTests */,
 				711A2EF329EA6B3D001F58FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				711A2EF229EA6B3D001F58FA /* FetchInterview.app */,
+				711A2F0B29EBC826001F58FA /* FetchInterviewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +92,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		711A2F0C29EBC826001F58FA /* FetchInterviewTests */ = {
+			isa = PBXGroup;
+			children = (
+				711A2F0D29EBC826001F58FA /* FetchInterviewTests.swift */,
+			);
+			path = FetchInterviewTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -90,6 +120,24 @@
 			productReference = 711A2EF229EA6B3D001F58FA /* FetchInterview.app */;
 			productType = "com.apple.product-type.application";
 		};
+		711A2F0A29EBC826001F58FA /* FetchInterviewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 711A2F1129EBC826001F58FA /* Build configuration list for PBXNativeTarget "FetchInterviewTests" */;
+			buildPhases = (
+				711A2F0729EBC826001F58FA /* Sources */,
+				711A2F0829EBC826001F58FA /* Frameworks */,
+				711A2F0929EBC826001F58FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				711A2F1029EBC826001F58FA /* PBXTargetDependency */,
+			);
+			name = FetchInterviewTests;
+			productName = FetchInterviewTests;
+			productReference = 711A2F0B29EBC826001F58FA /* FetchInterviewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -102,6 +150,10 @@
 				TargetAttributes = {
 					711A2EF129EA6B3D001F58FA = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					711A2F0A29EBC826001F58FA = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 711A2EF129EA6B3D001F58FA;
 					};
 				};
 			};
@@ -119,6 +171,7 @@
 			projectRoot = "";
 			targets = (
 				711A2EF129EA6B3D001F58FA /* FetchInterview */,
+				711A2F0A29EBC826001F58FA /* FetchInterviewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +183,13 @@
 			files = (
 				711A2EFD29EA6B3E001F58FA /* Preview Assets.xcassets in Resources */,
 				711A2EFA29EA6B3E001F58FA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711A2F0929EBC826001F58FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +206,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		711A2F0729EBC826001F58FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				711A2F0E29EBC826001F58FA /* FetchInterviewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		711A2F1029EBC826001F58FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 711A2EF129EA6B3D001F58FA /* FetchInterview */;
+			targetProxy = 711A2F0F29EBC826001F58FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		711A2EFE29EA6B3E001F58FA /* Debug */ = {
@@ -319,6 +395,40 @@
 			};
 			name = Release;
 		};
+		711A2F1229EBC826001F58FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amin.FetchInterview.FetchInterviewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FetchInterview.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FetchInterview";
+			};
+			name = Debug;
+		};
+		711A2F1329EBC826001F58FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amin.FetchInterview.FetchInterviewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FetchInterview.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FetchInterview";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -336,6 +446,15 @@
 			buildConfigurations = (
 				711A2F0129EA6B3E001F58FA /* Debug */,
 				711A2F0229EA6B3E001F58FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		711A2F1129EBC826001F58FA /* Build configuration list for PBXNativeTarget "FetchInterviewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				711A2F1229EBC826001F58FA /* Debug */,
+				711A2F1329EBC826001F58FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
