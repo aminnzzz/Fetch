@@ -87,9 +87,9 @@ struct MealDetailView: View {
                             Text("Ingredients:")
                                 .font(.title2)
                             Divider()
-                            ForEach(ingredients, id: \.self) { ingredient in
-                                if (ingredient != "") {
-                                    Text(ingredient)
+                            ForEach(0..<ingredients.count, id: \.self) { ingredient in
+                                if (ingredients[ingredient] != "") {
+                                    Text(ingredients[ingredient])
                                 }
                             }
                         }
@@ -99,9 +99,9 @@ struct MealDetailView: View {
                             Text("Measures:")
                                 .font(.title2)
                             Divider()
-                            ForEach(measures, id: \.self) { measure in
-                                if (measure != "") {
-                                    Text(measure)
+                            ForEach(0..<measures.count, id: \.self) { measure in
+                                if (measures[measure] != "") {
+                                    Text(measures[measure])
                                 }
                             }
                         }
